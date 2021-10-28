@@ -615,7 +615,7 @@ void tilter_auton() {
 }
 
 void skills_auton() {
-    float goal_heading;
+    float goal_heading = 45;
     float forward_heading;
     float turn_left_heading;
     float turn_left_goal_heading;
@@ -675,7 +675,7 @@ void skills_auton() {
 }
 
 void yellow_mogo_auton() {
-    float goal_heading;
+    float goal_heading = 45;
     float forward_heading;
 
     if (pros::c::imu_get_heading(12) < goal_heading) {
@@ -717,4 +717,19 @@ void yellow_mogo_auton() {
     } else {
         set_motors_stop();
     }
+}
+
+void neutral_auton() {
+    set_mogo(-127);
+    pros::delay(2300);
+    set_mogo(0);
+    set_motors_drive(8000);
+    pros::delay(1500);
+    set_motors_drive(0);
+    set_mogo(127);
+    pros::delay(1000);
+    set_mogo(0);
+    set_motors_drive(-8000);
+    pros::delay(1000);
+    set_motors_drive(0);
 }
