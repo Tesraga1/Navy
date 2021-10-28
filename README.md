@@ -2,7 +2,7 @@
 
 ---
 Navy Knight's Fenrir Robot code that is for the 2021-2022 Vex Robotics Competition. Can pick up 2 mobile goals. Based on the Harvard-Westlake's DOGO - PROS program
-![](DOGO-Render.png)   
+![](Fenrir.jpg)   
 
 ## Controls
 - `L1 & L2` Mogo Toggle
