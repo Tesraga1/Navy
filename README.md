@@ -9,7 +9,7 @@ Navy Knight's Fenrir Robot code that is for the 2021-2022 Vex Robotics Competiti
 - `UP Button & DOWN Button` Tilter Control. UP Button closes the tilter while the DOWN Button opens it
 - `R1` Lift Up Ladder
 - `R2` Lift Down Ladder
-- Arcade Drive
+- `Right Stick` Arcade Drive
 
 ## Useful File Descriptions
  - `src/lift.cpp`: Lift functions for opcontrol, with a position ladder.
