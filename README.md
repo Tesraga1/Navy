@@ -1,7 +1,7 @@
-# Based on the Harvard-Westlake's DOGO - PROS program
+# Julian Blanco's NAVYV1
 
 ---
-Navy Knight's Fenrir Robot code that is for the 2021-2022 Vex Robotics Competition. Can pick up 2 mobile goals
+Navy Knight's Fenrir Robot code that is for the 2021-2022 Vex Robotics Competition. Can pick up 2 mobile goals. Based on the Harvard-Westlake's DOGO - PROS program
 ![](DOGO-Render.png)   
 
 ## Controls
