@@ -717,5 +717,4 @@ void yellow_mogo_auton() {
     } else {
         set_motors_stop();
     }
-
 }

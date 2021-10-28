@@ -1,7 +1,7 @@
 {
     "py/object": "pros.conductor.project.Project",
     "py/state": {
-        "project_name": "DOGO",
+        "project_name": "NAVYV1",
         "target": "v5",
         "templates": {
             "kernel": {
