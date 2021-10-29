@@ -721,9 +721,9 @@ void yellow_mogo_auton() {
 
 void neutral_auton() {
     set_mogo(-127);
-    pros::delay(2300);
+    pros::delay(1200);
     set_mogo(0);
-    set_motors_drive(8000);
+    set_motors_drive(7000);
     pros::delay(1500);
     set_motors_drive(0);
     set_mogo(127);
