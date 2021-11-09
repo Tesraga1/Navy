@@ -7,6 +7,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #include "main.h"
 #include <string>
 
+
 // Slew
 // Variables that are arrays mean the first variable is for forward and the second is for backward
 int SLEW_MIN_POWER[2] = {FW_SLEW_MIN_POWER, BW_SLEW_MIN_POWER}; // Starting speed for the slew
@@ -620,7 +621,6 @@ void skills_auton() {
     float turn_left_heading;
     float turn_left_goal_heading;
 
-<<<<<<< Updated upstream
     if (pros::c::imu_get_heading(12) < goal_heading) {
         while (pros::c::imu_get_heading(12) < goal_heading) {
             set_motors_right(8000);
@@ -710,15 +710,25 @@ void yellow_mogo_auton() {
     if (pros::c::imu_get_heading(12) < forward_heading) {
         while (pros::c::imu_get_heading(12) < forward_heading) {
             set_motors_right(8000);
+    set_tilter(-100);
+	pros::delay(400);
+	set_tilter(45);
+	pros::delay(800);
+	set_tilter(0);
+	set_motors_drive(-2000);
+	pros::delay(200);
+	set_motors_drive(0);
+
+    while (gyro.get_heading() < 90) {
+        set_motors_right(8000);
+
         }
-    } else if (pros::c::imu_get_heading(12) > forward_heading) {
-        while (pros::c::imu_get_heading(12) > forward_heading) {
-            set_motors_left(8000);
+    while (gyro.get_heading() > 90) {
+        set_motors_left(8000);
         }
-    } else {
-        set_motors_stop();
+
     }
-=======
+
     set_tilter(-100);
 	pros::delay(400);
 	set_tilter(45);
@@ -731,7 +741,9 @@ void yellow_mogo_auton() {
         set_motors_right(3000);
     }
 	set_motors_drive(0);
->>>>>>> Stashed changes
+
+	set_motors_drive(0);
+
 }
 
 void neutral_auton() {
