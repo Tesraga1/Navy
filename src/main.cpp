@@ -180,9 +180,11 @@ void
 opcontrol() {
 	//drive_pid.suspend();
 	//reset_drive_sensor();
-	set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
+	set_drive_brake(MOTOR_BRAKE_COAST); // This is preference to what you like to drive on
     pros::c::motor_set_brake_mode(3,MOTOR_BRAKE_HOLD);
     pros::c::motor_set_brake_mode(13,MOTOR_BRAKE_HOLD);
+	pros::c::motor_set_brake_mode(1, MOTOR_BRAKE_HOLD);
+
 
     while (true) {
         arcadeDrive();
