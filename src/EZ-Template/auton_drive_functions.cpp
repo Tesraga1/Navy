@@ -626,30 +626,12 @@ void skills_auton() {
 	set_motors_drive(0);
 
     while (gyro.get_heading() < 90) {
-        set_motors_right(8000);
+        set_motors_right(3000);
 
         }
     while (gyro.get_heading() > 90) {
-        set_motors_left(8000);
+        set_motors_left(3000);
         }
-
-    
-
-    set_tilter(-100);
-	pros::delay(400);
-	set_tilter(45);
-	pros::delay(800);
-	set_tilter(0);
-	///set_motors_drive(-2000);
-	///pros::delay(200);
-	///set_motors_drive(0);
-    while (gyro.get_rotation() < 90) {
-        set_motors_right(3000);
-    }
-	set_motors_drive(0);
-
-	set_motors_drive(0);
-
 }
 
 void neutral_auton() {
