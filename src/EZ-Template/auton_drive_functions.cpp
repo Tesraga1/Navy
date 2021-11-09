@@ -567,15 +567,15 @@ void set_motors_drive(int voltage) {
 void set_motors_left(int voltage) {
     l_motor.move_voltage(-voltage);
     l2_motor.move_voltage(-voltage);
-    r_motor.move_voltage(voltage);
-    r2_motor.move_voltage(voltage);
+    r_motor.move_voltage(-voltage);
+    r2_motor.move_voltage(-voltage);
 }
 
 void set_motors_right(int voltage) {
     l_motor.move_voltage(voltage);
     l2_motor.move_voltage(voltage);
-    r_motor.move_voltage(-voltage);
-    r2_motor.move_voltage(-voltage);
+    r_motor.move_voltage(voltage);
+    r2_motor.move_voltage(voltage);
 }
 
 void mogo_auton() {
@@ -620,6 +620,7 @@ void skills_auton() {
     float turn_left_heading;
     float turn_left_goal_heading;
 
+<<<<<<< Updated upstream
     if (pros::c::imu_get_heading(12) < goal_heading) {
         while (pros::c::imu_get_heading(12) < goal_heading) {
             set_motors_right(8000);
@@ -717,6 +718,20 @@ void yellow_mogo_auton() {
     } else {
         set_motors_stop();
     }
+=======
+    set_tilter(-100);
+	pros::delay(400);
+	set_tilter(45);
+	pros::delay(800);
+	set_tilter(0);
+	///set_motors_drive(-2000);
+	///pros::delay(200);
+	///set_motors_drive(0);
+    while (gyro.get_rotation() < 90) {
+        set_motors_right(3000);
+    }
+	set_motors_drive(0);
+>>>>>>> Stashed changes
 }
 
 void neutral_auton() {
