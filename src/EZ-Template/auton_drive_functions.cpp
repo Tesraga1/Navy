@@ -7,6 +7,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #include "main.h"
 #include <string>
 
+
 // Slew
 // Variables that are arrays mean the first variable is for forward and the second is for backward
 int SLEW_MIN_POWER[2] = {FW_SLEW_MIN_POWER, BW_SLEW_MIN_POWER}; // Starting speed for the slew
@@ -620,103 +621,23 @@ void skills_auton() {
     float turn_left_heading;
     float turn_left_goal_heading;
 
-    if (pros::c::imu_get_heading(12) < goal_heading) {
-        while (pros::c::imu_get_heading(12) < goal_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > goal_heading) {
-        while (pros::c::imu_get_heading(12) > goal_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
+    set_tilter(-100);
+	pros::delay(400);
+	set_tilter(45);
+	pros::delay(800);
+	set_tilter(0);
+	set_motors_drive(-2000);
+	pros::delay(200);
+	set_motors_drive(0);
 
-    set_mogo(-127);
-    pros::delay(2300);
-    set_mogo(0);
-    set_motors_drive(8000);
-    pros::delay(500);
-    set_motors_stop();
-    set_motors_drive(4000);
-    pros::delay(800);
-    set_motors_stop();
-    //Retracts the Mogo
-    set_mogo(127);
-    pros::delay(1500);
-    set_mogo(0);
-
-    if (pros::c::imu_get_heading(12) < forward_heading) {
-        while (pros::c::imu_get_heading(12) < forward_heading) {
-            set_motors_right(8000);
+    while (gyro.get_heading() < 90) {
+        set_motors_right(8000);
         }
-    } else if (pros::c::imu_get_heading(12) > forward_heading) {
-        while (pros::c::imu_get_heading(12) > forward_heading) {
-            set_motors_left(8000);
+    while (gyro.get_heading() > 90) {
+        set_motors_left(8000);
         }
-    } else {
-        set_motors_stop();
-    }
-
-    set_motors_drive(12000);
-    set_motors_stop();
-
-    if (pros::c::imu_get_heading(12) < turn_left_heading) {
-        while (pros::c::imu_get_heading(12) < turn_left_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > turn_left_heading) {
-        while (pros::c::imu_get_heading(12) > turn_left_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-}
-
-void yellow_mogo_auton() {
-    float goal_heading = 45;
-    float forward_heading;
-
-    if (pros::c::imu_get_heading(12) < goal_heading) {
-        while (pros::c::imu_get_heading(12) < goal_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > goal_heading) {
-        while (pros::c::imu_get_heading(12) > goal_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-
-    set_mogo(-127);
-    pros::delay(2300);
-    set_mogo(0);
-    set_motors_drive(8000);
-    pros::delay(500);
-    set_motors_stop();
-    set_motors_drive(4000);
-    pros::delay(800);
-    set_motors_stop();
-    //Retracts the Mogo
-    set_mogo(127);
-    pros::delay(1500);
-    set_mogo(0);
-    set_motors_drive(-6000);
-    pros::delay(1000);
-
-    if (pros::c::imu_get_heading(12) < forward_heading) {
-        while (pros::c::imu_get_heading(12) < forward_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > forward_heading) {
-        while (pros::c::imu_get_heading(12) > forward_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
+	set_motors_drive(0);
+    
 }
 
 void neutral_auton() {

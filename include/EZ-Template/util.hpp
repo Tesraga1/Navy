@@ -13,6 +13,7 @@ extern pros::Motor l_motor;
 extern pros::Motor r_motor;
 extern pros::Motor l2_motor;
 extern pros::Motor r2_motor;
+extern pros::Imu gyro;
 
 void chassis_motor_init();
 
