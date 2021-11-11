@@ -13,3 +13,4 @@ void mogo_out (bool hold = false);
 
 void mogo_control();
 void mogo_control_manual();
+extern int mogo_port;

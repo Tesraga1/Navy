@@ -14,8 +14,8 @@ int controller_tilter_timer = 0;
 
 bool is_there = false;
 
-
-pros::Motor tilter(13, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
+int tilter_port = 13;
+pros::Motor tilter(tilter_port, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
 
 
 void set_tilter(int input)  { tilter = input; }

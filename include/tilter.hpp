@@ -16,3 +16,4 @@ void tilter_out (bool hold = false);
 
 void tilter_control();
 void tilter_control_manuel();
+extern int tilter_port;

@@ -3,7 +3,7 @@ L2_Motor = 19
 R_Motor = 14
 R2_Motor = 17
 
-Mogo = 1
+Mogo = 10
 Lift = 3
 Tilter/Claw = 13
 
