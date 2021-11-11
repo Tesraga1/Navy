@@ -616,22 +616,31 @@ void tilter_auton() {
 }
 
 void skills_auton() {
-    set_tilter(-100);
-	pros::delay(400);
-	set_tilter(45);
-	pros::delay(800);
-	set_tilter(0);
-	set_motors_drive(-2000);
-	pros::delay(200);
+    set_mogo(-127);
+	pros::delay(1500);
+	set_mogo(0);
+	set_motors_drive(4000);
+	pros::delay(1000);
 	set_motors_drive(0);
+	set_mogo(127);
+	pros::delay(900);
+	set_mogo(0);
+	set_motors_drive(-4000);
+	pros::delay(1000);
 
-    while (gyro.get_heading() < 90) {
-        set_motors_right(3000);
-
+    while (gyro.get_heading() < 95 || gyro.get_heading() > 98) {
+        set_motors_left(6000);
         }
-    while (gyro.get_heading() > 90) {
-        set_motors_left(3000);
-        }
+    
+	set_motors_drive(0);
+	pros::delay(20);
+	set_motors_drive(-8000);
+	pros::delay(1500);
+	set_motors_drive(0);
+	set_tilter(-127);
+	pros::delay(900);
+	set_tilter(0);
+	pros::delay(0);
 }
 
 void neutral_auton() {
