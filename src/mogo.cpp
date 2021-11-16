@@ -14,7 +14,7 @@ int mogo_out_timer = 0;
 bool is_up = false;
 bool is_out = false;
 
-int mogo_port = 10; 
+int mogo_port = 15; 
 pros::Motor mogo(mogo_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
 
