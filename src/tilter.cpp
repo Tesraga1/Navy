@@ -157,15 +157,10 @@ tilter_control() {
 }
 
 void tilter_control_manuel() {
-    if (master.get_digital(DIGITAL_UP)) {
+    if (master.get_digital(DIGITAL_DOWN)) {
         set_tilter(127);
-    } else if (master.get_digital(DIGITAL_DOWN)) {
-        while (1==1) {
-          set_tilter(-100);
-          if (master.get_digital(DIGITAL_UP)) {
-            break;
-          }
-        }
+    } else if (master.get_digital(DIGITAL_UP)) {
+          set_tilter(-127);
     } else {
         set_tilter(0);
     }
