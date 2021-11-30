@@ -36,7 +36,7 @@ on_center_button() {
 	}
 }
 
-const int num_of_pages = 3;
+const int num_of_pages = 5;
 int current_page = 0;
 
 void
@@ -64,6 +64,9 @@ auto_select(bool is_auton) {
 		case 3:
 			pros::lcd::set_text(2, "Neutral auton: Goes forward and picks up the neutral ");
 			if (is_auton) neutral_auton();
+		case 4:
+			pros::lcd::set_text(2, "Win Point Auton");
+			if (is_auton) win_point();
 		default:
 			break;
 	}
@@ -160,6 +163,8 @@ autonomous() {
     set_drive_brake(MOTOR_BRAKE_BRAKE);
     //drive_pid.resume();
 	pros::c::motor_set_brake_mode(mogo_port, MOTOR_BRAKE_HOLD);
+	pros::c::motor_set_brake_mode(lift_port, MOTOR_BRAKE_HOLD);
+    pros::c::motor_set_brake_mode(tilter_port, MOTOR_BRAKE_HOLD);
     auto_select(true);
 }
 

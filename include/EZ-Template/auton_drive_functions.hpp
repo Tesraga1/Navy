@@ -54,3 +54,4 @@ void mogo_auton();
 void tilter_auton();
 void skills_auton();
 void neutral_auton();
+void win_point();

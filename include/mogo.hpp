@@ -7,9 +7,9 @@ int get_mogo();
 int get_mogo_vel();
 void set_mogo_position(int target);
 
-void mogo_in  (bool hold = false);
+void mogo_in(bool hold = false);
 void mogo_neut(bool hold = false);
-void mogo_out (bool hold = false);
+void mogo_out(bool hold = false);
 
 void mogo_control();
 void mogo_control_manual();

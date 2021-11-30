@@ -1,29 +1,25 @@
 #include "main.h"
 
-
-const int TILTER_IN   = 90; // Bringing Mogos In
-const int TILTER_OUT  = 300; // Intaking Mogos
+const int TILTER_IN = 90;    // Bringing Mogos In
+const int TILTER_OUT = 300;  // Intaking Mogos
 const int TILTER_DOWN = 470; // Tipping Mogos
-
 
 // Driver Control Variables
 bool tilter_up = true;
 bool is_at_down = false;
-int tilter_lock   = 0;
+int tilter_lock = 0;
 int controller_tilter_timer = 0;
 
 bool is_there = false;
 
-int tilter_port = 13;
+int tilter_port = 20;
 pros::Motor tilter(tilter_port, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
 
+void set_tilter(int input) { tilter = input; }
 
-void set_tilter(int input)  { tilter = input; }
-
-void zero_tilter()    { tilter.tare_position(); }
-int  get_tilter()     { return tilter.get_position(); }
-int  get_tilter_vel() { return tilter.get_actual_velocity(); }
-
+void zero_tilter() { tilter.tare_position(); }
+int get_tilter() { return tilter.get_position(); }
+int get_tilter_vel() { return tilter.get_actual_velocity(); }
 
 ///
 // Tilter  Control
@@ -33,30 +29,38 @@ int  get_tilter_vel() { return tilter.get_actual_velocity(); }
 
 // Check if tilter is within a range of target for X amount of time
 // or if tilter is at 0 velocity for Y amount of time
-bool
-timeout(int target, int vel, int current) {
+bool timeout(int target, int vel, int current)
+{
   static int vel_timeout;
   static int small_timeout;
 
-  if (abs(target-current) < 20) {
-    small_timeout+=DELAY_TIME;
-    if (small_timeout>50) {
+  if (abs(target - current) < 20)
+  {
+    small_timeout += DELAY_TIME;
+    if (small_timeout > 50)
+    {
       small_timeout = 0;
       vel_timeout = 0;
       return true;
     }
-  } else {
+  }
+  else
+  {
     small_timeout = 0;
   }
 
-  if (vel == 0) {
-    vel_timeout+=DELAY_TIME;
-    if (vel_timeout>250) {
+  if (vel == 0)
+  {
+    vel_timeout += DELAY_TIME;
+    if (vel_timeout > 250)
+    {
       vel_timeout = 0;
       small_timeout = 0;
       return true;
     }
-  } else {
+  }
+  else
+  {
     vel_timeout = 0;
   }
 
@@ -64,69 +68,72 @@ timeout(int target, int vel, int current) {
 }
 
 // Tilter In
-void
-set_tilter_position (int target, int speed, bool hold) {
+void set_tilter_position(int target, int speed, bool hold)
+{
   // Run built in PID to bring tilter lift to target
   tilter.move_absolute(target, speed);
   is_there = timeout(target, get_tilter_vel(), get_tilter());
 
   // If running during autonomous,
-  if (hold) {
+  if (hold)
+  {
     // Loop if robot isn't there yet
     pros::delay(DELAY_TIME);
     set_tilter_position(target, speed, !is_there);
   }
 }
 
-
 // Tilter In
-void
-tilter_in (bool hold) {
+void tilter_in(bool hold)
+{
   // Run built in PID to bring tilter lift to TILTER_IN
   set_tilter_position(TILTER_IN, 100, hold);
 
   // Set states so the mogo will be in the last position in driver it was in during auto
-  if (hold) {
+  if (hold)
+  {
     tilter_up = true;
     is_at_down = false;
   }
 }
 
 // Tilter Down
-void
-tilter_down(bool hold) {
+void tilter_down(bool hold)
+{
   // Run built in PID to bring tilter lift to TILTER_DOWN
   set_tilter_position(TILTER_DOWN, 100, hold);
 
   // Set states so the mogo will be in the last position in driver it was in during auto
-  if (hold) {
+  if (hold)
+  {
     is_at_down = true;
   }
 }
 
 // Tilter Out
-void
-tilter_out(bool hold) {
+void tilter_out(bool hold)
+{
   // Run built in PID to bring tilter lift to TILTER_OUT
   set_tilter_position(TILTER_OUT, 100, hold);
 
   // Set states so the mogo will be in the last position in driver it was in during auto
-  if (hold) {
+  if (hold)
+  {
     tilter_up = false;
     is_at_down = false;
   }
 }
-
 
 ///
 // Driver Control
 //  - when L2 is pressed, toggle between in and out.
 //  - when L2 is held, bring the tilter all the way down
 ///
-void
-tilter_control() {
+void tilter_control()
+{
   // Toggle for tilter
-  if (master.get_digital(DIGITAL_L2) && tilter_lock==0) {
+  if (master.get_digital(DIGITAL_L2) && tilter_lock == 0)
+  {
     if (is_at_down)
       tilter_up = false;
     else
@@ -136,14 +143,16 @@ tilter_control() {
     tilter_lock = 1;
   }
   // If button is held, bring tilter all the way down
-  else if (master.get_digital(DIGITAL_L2)) {
-    controller_tilter_timer+=DELAY_TIME;
-    if (controller_tilter_timer>=300)
+  else if (master.get_digital(DIGITAL_L2))
+  {
+    controller_tilter_timer += DELAY_TIME;
+    if (controller_tilter_timer >= 300)
       is_at_down = true;
   }
   // Reset when button is let go
-  else if (!master.get_digital(DIGITAL_L2)) {
-    tilter_lock  = 0;
+  else if (!master.get_digital(DIGITAL_L2))
+  {
+    tilter_lock = 0;
     controller_tilter_timer = 0;
   }
 
@@ -156,12 +165,18 @@ tilter_control() {
     tilter_out();
 }
 
-void tilter_control_manuel() {
-    if (master.get_digital(DIGITAL_DOWN)) {
-        set_tilter(127);
-    } else if (master.get_digital(DIGITAL_UP)) {
-          set_tilter(-127);
-    } else {
-        set_tilter(0);
-    }
+void tilter_control_manuel()
+{
+  if (master.get_digital(DIGITAL_DOWN))
+  {
+    set_tilter(127);
+  }
+  else if (master.get_digital(DIGITAL_UP))
+  {
+    set_tilter(-127);
+  }
+  else
+  {
+    set_tilter(0);
+  }
 }
