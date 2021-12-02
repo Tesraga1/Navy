@@ -391,7 +391,7 @@ void set_drive_pid(int type, float target, int speed, bool slew_on, bool toggle_
 		printf("Turn Started... Target Value: %f\n", target);
 		gyro_target = target;
 		gyro_sign = sgn(target - get_gyro());
-		//printf("\nTURNING   Target: %ideg with", target);
+		// printf("\nTURNING   Target: %ideg with", target);
 	}
 
 	// If l_turn, set targets to angle
@@ -412,7 +412,7 @@ bool drive_exit_condition(int small_timeout, int start_small_counter_within, int
 	if (fabs(l_target_encoder - left_sensor()) < start_small_counter_within && fabs(r_target_encoder - right_sensor()) < start_small_counter_within)
 	{
 		j++;
-		//printf("\nJ: %i", j/10);
+		// printf("\nJ: %i", j/10);
 
 		if (j > small_timeout / 10)
 		{
@@ -430,7 +430,7 @@ bool drive_exit_condition(int small_timeout, int start_small_counter_within, int
 	if (fabs(l_target_encoder - left_sensor()) < start_big_counter_within && fabs(r_target_encoder - right_sensor()) < start_big_counter_within)
 	{
 		i++;
-		//printf("\nI: %i", i/10);
+		// printf("\nI: %i", i/10);
 
 		if (i > big_timeout / 10)
 		{
@@ -446,7 +446,7 @@ bool drive_exit_condition(int small_timeout, int start_small_counter_within, int
 	if (right_velocity() == 0 && left_velocity() == 0)
 	{
 		k += delay_time;
-		//printf("\nI: %i", i/10);
+		// printf("\nI: %i", i/10);
 
 		if (k > velocity_timeout)
 		{
@@ -471,7 +471,7 @@ bool turn_exit_condition(int small_timeout, int start_small_counter_within, int 
 	if (fabs(gyro_target - get_gyro()) < start_small_counter_within)
 	{
 		j++;
-		//printf("\nJ: %i", j/10);
+		// printf("\nJ: %i", j/10);
 
 		if (j > small_timeout / 10)
 		{
@@ -488,7 +488,7 @@ bool turn_exit_condition(int small_timeout, int start_small_counter_within, int 
 	if (fabs(gyro_target - get_gyro()) < start_big_counter_within)
 	{
 		i++;
-		//printf("\nI: %i", i/10);
+		// printf("\nI: %i", i/10);
 
 		if (i > big_timeout / 10)
 		{
@@ -504,7 +504,7 @@ bool turn_exit_condition(int small_timeout, int start_small_counter_within, int 
 	if (right_velocity() == 0 && left_velocity() == 0)
 	{
 		k++;
-		//printf("\nI: %i", i/10);
+		// printf("\nI: %i", i/10);
 
 		if (k > velocity_timeout / 10)
 		{
@@ -519,7 +519,7 @@ bool turn_exit_condition(int small_timeout, int start_small_counter_within, int 
 	return true;
 }
 
-//Wait for drive
+// Wait for drive
 void wait_drive(bool goal_yes, int delay_after)
 {
 	int delay_time = 10;
@@ -551,9 +551,9 @@ void wait_drive(bool goal_yes, int delay_after)
 		{
 			pros::delay(delay_time);
 		}
-		//while (turn_exit_condition(100, 3, 500, 7) && fabs(lf.get_power()-rf.get_power())<20) {
+		// while (turn_exit_condition(100, 3, 500, 7) && fabs(lf.get_power()-rf.get_power())<20) {
 		//	pros::delay(delay_time);
-		//}
+		// }
 	}
 }
 
@@ -644,7 +644,7 @@ void mogo_auton()
 {
 	set_mogo(-127);
 	pros::delay(2300);
-	//Drives into the Mobile goal
+	// Drives into the Mobile goal
 	set_mogo(0);
 	set_motors_drive(8000);
 	pros::delay(500);
@@ -652,7 +652,7 @@ void mogo_auton()
 	set_motors_drive(4000);
 	pros::delay(800);
 	set_motors_stop();
-	//Retracts the Mogo and drives backwards
+	// Retracts the Mogo and drives backwards
 	set_mogo(127);
 	pros::delay(1500);
 	set_mogo(0);
@@ -735,64 +735,64 @@ void skills_auton()
 
 void neutral_auton()
 {
-	//Drives forward
+	// Drives forward
 	set_motors_drive(-8000);
 	pros::delay(1600);
 	set_motors_drive(0);
-	//Grabs the goal with the claw
+	// Grabs the goal with the claw
 	set_tilter(-127);
 	pros::delay(1000);
 	set_tilter(0);
-	//Drives backwards
+	// Drives backwards
 	set_motors_drive(8000);
 	pros::delay(1600);
 	set_motors_drive(0);
 }
 
-void win_point() {
-    set_tilter(-100);
-    pros::delay(400);
-    set_tilter(100);
-    pros::delay(400);
-    set_tilter(0);
-    set_motors_drive(6000);
-    pros::delay(410);
-    set_motors_drive(0);
+void win_point()
+{
+	set_tilter(-100);
+	pros::delay(400);
+	set_tilter(100);
+	pros::delay(400);
+	set_tilter(0);
+	set_motors_drive(6000);
+	pros::delay(410);
+	set_motors_drive(0);
 
-    while (gyro.get_heading() < 87 || gyro.get_heading() > 91)
-    {
-        set_motors_right(-6000);
-    }
+	while (gyro.get_heading() < 87 || gyro.get_heading() > 91)
+	{
+		set_motors_right(-6000);
+	}
 
-    set_motors_drive(0);
-    pros::delay(20);
-    set_motors_drive(8100);
-    pros::delay(630);
-    set_motors_drive(0);
+	set_motors_drive(0);
+	pros::delay(20);
+	set_motors_drive(8100);
+	pros::delay(630);
+	set_motors_drive(0);
 
-    while (gyro.get_heading() < 165 || gyro.get_heading() >175)
-    {
-        set_motors_right(-6000);
-    }
-    set_motors_drive(0);
-    pros::delay(20);
-    set_motors_drive(7000);
-    pros::delay(2900);
-    set_motors_drive(0);
-    set_mogo(-127);
-    pros::delay(1300);
-    set_mogo(0);
-    set_motors_drive(7000);
-    pros::delay(1000);
-    set_motors_drive(0);
-    set_mogo(127);
-    pros::delay(800);
-    set_mogo(0);
-    set_motors_drive(-8000);
-    pros::delay(1000);
-    set_motors_drive(0);
-    set_mogo(-90);
-    pros::delay(1400);
-    set_mogo(0);
-
+	while (gyro.get_heading() < 165 || gyro.get_heading() > 175)
+	{
+		set_motors_right(-6000);
+	}
+	set_motors_drive(0);
+	pros::delay(20);
+	set_motors_drive(7000);
+	pros::delay(2900);
+	set_motors_drive(0);
+	set_mogo(-127);
+	pros::delay(1300);
+	set_mogo(0);
+	set_motors_drive(7000);
+	pros::delay(1000);
+	set_motors_drive(0);
+	set_mogo(127);
+	pros::delay(800);
+	set_mogo(0);
+	set_motors_drive(-8000);
+	pros::delay(1000);
+	set_motors_drive(0);
+	set_mogo(-90);
+	pros::delay(1400);
+	set_mogo(0);
 }
