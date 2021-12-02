@@ -735,36 +735,64 @@ void skills_auton()
 
 void neutral_auton()
 {
+	//Drives forward
 	set_motors_drive(-8000);
 	pros::delay(1600);
 	set_motors_drive(0);
+	//Grabs the goal with the claw
 	set_tilter(-127);
 	pros::delay(1000);
 	set_tilter(0);
+	//Drives backwards
 	set_motors_drive(8000);
 	pros::delay(1600);
 	set_motors_drive(0);
 }
 
 void win_point() {
-	set_tilter(-100);
-	pros::delay(400);
-	set_tilter(100);
-	pros::delay(400);
-	set_tilter(0);
-	set_motors_drive(6000);
-	pros::delay(400);
-	set_motors_drive(0);
+    set_tilter(-100);
+    pros::delay(400);
+    set_tilter(100);
+    pros::delay(400);
+    set_tilter(0);
+    set_motors_drive(6000);
+    pros::delay(410);
+    set_motors_drive(0);
 
-	while (gyro.get_heading() < 260 || gyro.get_heading() > 275)
-	{
-		set_motors_right(-6000);
-	}
+    while (gyro.get_heading() < 87 || gyro.get_heading() > 91)
+    {
+        set_motors_right(-6000);
+    }
 
-	set_motors_drive(0);
-	pros::delay(20);
-	set_motors_drive(-8000);
-	pros::delay(500);
-	set_motors_drive(0);
+    set_motors_drive(0);
+    pros::delay(20);
+    set_motors_drive(8100);
+    pros::delay(630);
+    set_motors_drive(0);
+
+    while (gyro.get_heading() < 165 || gyro.get_heading() >175)
+    {
+        set_motors_right(-6000);
+    }
+    set_motors_drive(0);
+    pros::delay(20);
+    set_motors_drive(7000);
+    pros::delay(2900);
+    set_motors_drive(0);
+    set_mogo(-127);
+    pros::delay(1300);
+    set_mogo(0);
+    set_motors_drive(7000);
+    pros::delay(1000);
+    set_motors_drive(0);
+    set_mogo(127);
+    pros::delay(800);
+    set_mogo(0);
+    set_motors_drive(-8000);
+    pros::delay(1000);
+    set_motors_drive(0);
+    set_mogo(-90);
+    pros::delay(1400);
+    set_mogo(0);
 
 }
