@@ -35,6 +35,8 @@ pros::Motor l_motor(abs(L_CHASSIS_PORTS[0]), MOTOR_GEARSET_6, is_reversed(L_CHAS
 pros::Motor r_motor(abs(R_CHASSIS_PORTS[0]), MOTOR_GEARSET_6, is_reversed(R_CHASSIS_PORTS[0]), MOTOR_ENCODER_COUNTS);
 pros::Motor l2_motor(abs(L_CHASSIS_PORTS[1]), MOTOR_GEARSET_06, is_reversed(L_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
 pros::Motor r2_motor(abs(R_CHASSIS_PORTS[1]), MOTOR_GEARSET_06, is_reversed(R_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
+pros::Motor l3_motor(abs(L_CHASSIS_PORTS[2]), MOTOR_GEARSET_06, is_reversed(L_CHASSIS_PORTS[2]), MOTOR_ENCODER_COUNTS);
+pros::Motor r3_motor(abs(R_CHASSIS_PORTS[2]), MOTOR_GEARSET_06, is_reversed(R_CHASSIS_PORTS[2]), MOTOR_ENCODER_COUNTS);
 pros::Imu gyro(GYRO_PORT);
 
 // Initializes pros reversing
