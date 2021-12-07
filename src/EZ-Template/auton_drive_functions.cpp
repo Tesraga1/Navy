@@ -680,52 +680,67 @@ void tilter_auton()
 
 void skills_auton()
 {
+	// Lowers Mogo
 	set_mogo(-127);
 	pros::delay(1500);
 	set_mogo(0);
+
+	// Drives Forward and grabs Mobile Goal
 	set_motors_drive(6000);
 	pros::delay(1000);
 	set_motors_drive(0);
 	set_mogo(127);
-	pros::delay(900);
+	pros::delay(700);
 	set_mogo(0);
-	set_motors_drive(-6000);
-	pros::delay(1000);
 
-	while (gyro.get_heading() < 91 || gyro.get_heading() > 94)
+	// Backs up
+	set_motors_drive(-6000);
+	pros::delay(900);
+
+	// Turns towards the neutral mobile goal
+	while (gyro.get_heading() < 89 || gyro.get_heading() > 92)
 	{
 		set_motors_left(6000);
 	}
 
 	set_motors_drive(0);
 	pros::delay(20);
+
+	// Drives forward and grabs the nutral goal
 	set_motors_drive(-8000);
 	pros::delay(1500);
 	set_motors_drive(0);
 	set_tilter(-127);
 	pros::delay(900);
 	set_tilter(-60);
+
+	// Moves forward and lifts the mobile goal up
 	set_motors_drive(-8000);
-	pros::delay(1500);
+	pros::delay(1300);
 	set_motors_drive(0);
 	set_tilter(-60);
 	pros::delay(100);
 	set_lift(127);
 	pros::delay(1600);
 
+	// Turns left slightly to line up with the platform
 	while (gyro.get_heading() < 122 || gyro.get_heading() > 128)
 	{
 		set_motors_left(6000);
 	}
 	set_motors_drive(0);
 	pros::delay(20);
+
+	// Drive forward and places the mobile goal down
 	set_motors_drive(-6000);
-	pros::delay(1000);
+	pros::delay(1400);
 	set_motors_drive(0);
 	set_lift(-127);
-	pros::delay(750);
+	pros::delay(550);
 	set_lift(0);
-	set_tilter(-127);
+
+	// Lets the mobile goal go
+	set_tilter(127);
 	pros::delay(500);
 	set_tilter(0);
 	set_lift(127);
@@ -741,7 +756,7 @@ void neutral_auton()
 	set_motors_drive(0);
 	// Grabs the goal with the claw
 	set_tilter(-127);
-	pros::delay(1000);
+	pros::delay(800);
 	set_tilter(0);
 	// Drives backwards
 	set_motors_drive(8000);
@@ -751,6 +766,8 @@ void neutral_auton()
 
 void win_point()
 {
+	std::int32_t tare_rotation(GYRO_PORT); 
+	std::int32_t tare_heading(GYRO_PORT); 
 	set_tilter(-100);
 	pros::delay(400);
 	set_tilter(100);
@@ -768,23 +785,23 @@ void win_point()
 	set_motors_drive(0);
 	pros::delay(20);
 	set_motors_drive(8100);
-	pros::delay(630);
+	pros::delay(830);
 	set_motors_drive(0);
 
-	while (gyro.get_heading() < 165 || gyro.get_heading() > 175)
+	while (gyro.get_heading() < 167 || gyro.get_heading() > 177)
 	{
 		set_motors_right(-6000);
 	}
 	set_motors_drive(0);
 	pros::delay(20);
 	set_motors_drive(7000);
-	pros::delay(2900);
+	pros::delay(2500);
 	set_motors_drive(0);
 	set_mogo(-127);
 	pros::delay(1300);
 	set_mogo(0);
 	set_motors_drive(7000);
-	pros::delay(1000);
+	pros::delay(1200);
 	set_motors_drive(0);
 	set_mogo(127);
 	pros::delay(800);

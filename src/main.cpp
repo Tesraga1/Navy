@@ -62,18 +62,22 @@ void auto_select(bool is_auton)
 			tilter_auton(); // auto_3();
 		break;
 	case 2: // Auto 3
-		pros::lcd::set_text(2, "Skills auton: Does both claw & mogo auton");
+		pros::lcd::set_text(2, "Skills auton");
 		if (is_auton)
 			skills_auton();
 		break;
 	case 3:
-		pros::lcd::set_text(2, "Neutral auton: Goes forward and picks up the neutral ");
+		pros::lcd::set_text(2, "Neutral auton:");
+		pros::lcd::set_text(2, "Goes forward and picks up");
+		pros::lcd::set_text(2, "the neutral goal");
 		if (is_auton)
 			neutral_auton();
+		break;
 	case 4:
 		pros::lcd::set_text(2, "Win Point Auton");
 		if (is_auton)
 			win_point();
+		break;
 	default:
 		break;
 	}
