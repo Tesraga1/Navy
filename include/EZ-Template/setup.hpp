@@ -20,6 +20,7 @@ const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {14, -17, 2}; // Ports, the first 
 
 // IMU Port
 #define GYRO_PORT 12
+#define PNEUMATICS 'B'
 
 
 
