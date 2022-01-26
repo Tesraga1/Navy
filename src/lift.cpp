@@ -9,7 +9,7 @@ const int lift_heights[num_of_pos] = {0, 310, 500}; // Lift Positions
 int up_lock = 0;
 int down_lock = 0;
 int lift_state = 0;
-int lift_port = 3;
+int lift_port = 11;
 
 pros::Motor lift(lift_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
