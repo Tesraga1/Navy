@@ -49,6 +49,7 @@
 #include "mogo.hpp"
 #include "lift.hpp"
 #include "autons.hpp"
+#include "puttputt.h"
 
 
 /**

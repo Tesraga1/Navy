@@ -57,3 +57,4 @@ void neutral_auton();
 void neutral_2auton();
 void win_point();
 void line_auton();
+void new_mexico();

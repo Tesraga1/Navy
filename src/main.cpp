@@ -37,7 +37,7 @@ void on_center_button()
 	}
 }
 
-const int num_of_pages = 6;
+const int num_of_pages = 7;
 int current_page = 0;
 
 void auto_select(bool is_auton)
@@ -54,7 +54,6 @@ void auto_select(bool is_auton)
             if (is_auton)
                 tilter_auton(); // solo_awp();
             break;
-
         case 1: // Auto 2
             pros::lcd::set_text(2, "N2 Auton");
             if (is_auton)
@@ -81,6 +80,11 @@ void auto_select(bool is_auton)
             pros::lcd::set_text(2, "Line Auton");
             if (is_auton)
                 line_auton();
+            break;
+        case 6:
+            pros::lcd::set_text(2, "New Mexico");
+            if (is_auton)
+                new_mexico();
             break;
 	default:
 		break;
@@ -202,11 +206,10 @@ void opcontrol()
 	while (true)
 	{
 		arcadeDrive();
-
 		mogo_control_manual();
 		tilter_control_manuel();
 		lift_control_manuel();
-
 		pros::delay(DELAY_TIME);
 	}
+
 }

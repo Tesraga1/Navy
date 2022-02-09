@@ -618,6 +618,11 @@ void tilter_auton() {
     pros::delay(800);
     set_tilter(0);
 }
+void new_mexico() {
+    set_puttputt(50);
+    pros::delay(500);
+    set_puttputt(0);
+}
 void line_auton() {
     set_motors_drive(4000);
     pros::delay(800);
@@ -784,17 +789,17 @@ void win_point() {
     pros::delay(400);
     set_tilter(0);
     set_motors_drive(6000);
-    pros::delay(410);
+    pros::delay(310);
     set_motors_drive(0);
-    gyro_turning(78, 82, true, false);
+    gyro_turning(73, 77, true, false);
 ///87,91
     set_motors_drive(0);
     pros::delay(200);
     set_motors_drive(8100);
-    pros::delay(700);
+    pros::delay(440);
     set_motors_drive(0);
 
-    gyro_turning(178, 182, true, false);
+    gyro_turning(163, 167, true, false);
 ///167, 177
     set_motors_drive(0);
     pros::delay(20);
@@ -804,11 +809,14 @@ void win_point() {
     pros::delay(1200);
     set_motors_drive(0);
     set_mogo(-127);
-    pros::delay(800);
+    pros::delay(875);
     set_mogo(0);
     set_motors_drive(-8000);
     pros::delay(1000);
     set_motors_drive(0);
+    set_puttputt(50);
+    pros::delay(300);
+    set_puttputt(0);
 }
 
 //set_mogo(-127);

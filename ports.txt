@@ -1,12 +1,13 @@
 L_Motor = 14
 L2_Motor = 19
 L3_Motor = 12
-R_Motor = 1
-R2_Motor = 3
+R_Motor = 3
+R2_Motor = 1
 R3_Motor = 18
 
 Mogo = 16
-Lift = 4
-Tilter/Claw = 20
+Lift = 11
+Tilter/Claw = 17
+Putt Putt = 2
 
-IMU = 12
+IMU = 19
