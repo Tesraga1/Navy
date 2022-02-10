@@ -54,7 +54,7 @@ void gyro_turning(float left_range, float right_range, bool negative, bool direc
 void tilter_auton();
 void skills_auton();
 void neutral_auton();
-void neutral_2auton();
+void neutral_biggiecheese();
 void win_point();
 void line_auton();
 void new_mexico();

@@ -55,9 +55,9 @@ void auto_select(bool is_auton)
                 tilter_auton(); // solo_awp();
             break;
         case 1: // Auto 2
-            pros::lcd::set_text(2, "N2 Auton");
+            pros::lcd::set_text(2, "Biggiecheese Auton");
             if (is_auton)
-                neutral_2auton();// auto_3();
+                neutral_biggiecheese();// auto_3();
             break;
         case 2: // Auto 3
             pros::lcd::set_text(2, "Skills auton");
