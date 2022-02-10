@@ -768,11 +768,11 @@ void neutral_auton() {
     pros::delay(300);
     set_tilter(127);
     pros::delay(800);
-    set_tilter(0);
     // Drives backwards
     set_motors_drive(12000);
     pros::delay(1000);
     set_motors_drive(0);
+    set_tilter(0);
 }
 void neutral_biggiecheese() {
     set_motors_drive(-12000);
@@ -806,8 +806,8 @@ void win_point() {
     set_motors_drive(8100);
     pros::delay(440);
     set_motors_drive(0);
-
-    gyro_turning(156, 160, true, false);
+    pros::delay(200);
+    gyro_turning(157, 161, true, false);
 ///167, 177
     set_motors_drive(0);
     pros::delay(20);
@@ -819,14 +819,13 @@ void win_point() {
     set_mogo(-127);
     pros::delay(875);
     set_mogo(0);
-    set_motors_drive(-8000);
-    pros::delay(1000);
-    set_motors_drive(0);
-    pros::delay(400);
     set_puttputt(50);
     pros::delay(150);
     set_puttputt(0);
-
+    pros::delay(50);
+    set_motors_drive(-8000);
+    pros::delay(500);
+    set_motors_drive(0);
 }
 
 //set_mogo(-127);
