@@ -17,6 +17,7 @@ extern pros::Motor l3_motor;
 extern pros::Motor r3_motor;
 extern pros::Imu gyro;
 extern pros::ADIDigitalOut pistonClamp;
+extern pros::ADIDigitalOut mogoClamp;
 void chassis_motor_init();
 
 void set_left_chassis(int left);

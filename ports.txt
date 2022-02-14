@@ -1,5 +1,5 @@
 L_Motor = 14
-L2_Motor = 19
+L2_Motor = 15
 L3_Motor = 12
 R_Motor = 3
 R2_Motor = 1

@@ -120,10 +120,10 @@ void arcadeDrive() {
     int right = power - turn;
 
     l_motor.move(-left);
-    //l2_motor.move((-left*.9));
+    l2_motor.move(-left);
     l3_motor.move(-left);
     r_motor.move(-right);
-    //r2_motor.move((-right*.9));
+    r2_motor.move(-right);
     r3_motor.move(-right);
 
     pros::delay(20);

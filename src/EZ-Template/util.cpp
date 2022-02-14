@@ -38,7 +38,8 @@ pros::Motor r2_motor(abs(R_CHASSIS_PORTS[1]), MOTOR_GEARSET_18, is_reversed(R_CH
 pros::Motor l3_motor(abs(L_CHASSIS_PORTS[2]), MOTOR_GEARSET_06, is_reversed(L_CHASSIS_PORTS[2]), MOTOR_ENCODER_COUNTS);
 pros::Motor r3_motor(abs(R_CHASSIS_PORTS[2]), MOTOR_GEARSET_06, is_reversed(R_CHASSIS_PORTS[2]), MOTOR_ENCODER_COUNTS);
 pros::Imu gyro(GYRO_PORT);
-pros::ADIDigitalOut pistonClamp(PNEUMATICS);
+pros::ADIDigitalOut pistonClamp(TILTER);
+pros::ADIDigitalOut mogoClamp(MOGO);
 
 // Initializes pros reversing
 void chassis_motor_init()

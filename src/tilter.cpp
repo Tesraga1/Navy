@@ -169,14 +169,16 @@ void tilter_control_manuel()
 {
   if (master.get_digital(DIGITAL_DOWN))
   {
-    set_tilter(127);
+    ///set_tilter(127);
+    mogoClamp.set_value(true);
   }
   else if (master.get_digital(DIGITAL_UP))
   {
-    set_tilter(-127);
+    ///set_tilter(-127);
+    mogoClamp.set_value(false);
   }
   else
   {
-    set_tilter(0);
+    ///set_tilter(0);
   }
 }

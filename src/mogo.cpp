@@ -146,16 +146,16 @@ void mogo_control_manual()
 {
   if (master.get_digital(DIGITAL_L1))
   {
-    set_mogo(127);
-    ///pistonClamp.set_value(true);
+    ///set_mogo(127);
+    pistonClamp.set_value(true);
   }
   else if (master.get_digital(DIGITAL_L2))
   {
-    set_mogo(-127);
-    ///pistonClamp.set_value(false);
+    ///set_mogo(-127);
+    pistonClamp.set_value(false);
   }
   else
   {
-    set_mogo(0);
+    ///set_mogo(0);
   }
 }
