@@ -670,7 +670,7 @@ void skills_auton() {
 
     // Moves forward and lifts the mobile goal up
     set_motors_drive(-8000);
-    pros::delay(1150);
+    pros::delay(1250);
     set_motors_drive(0);
     set_tilter(60);
     pros::delay(100);
@@ -774,20 +774,27 @@ void neutral_auton() {
     set_motors_drive(0);
     set_tilter(0);
 }
-void neutral_biggiecheese() {
-    set_motors_drive(-12000);
-    pros::delay(900);
-    set_motors_drive(-3000);
-    // Grabs the goal with the claw
-    pros::delay(400);
-    set_tilter(127);
-    pros::delay(800);
-    set_tilter(0);
-    // Drives backwards
-    set_motors_drive(12000);
-    pros::delay(1000);
-    set_motors_drive(0);
-}
+//void neutral_biggiecheese() {
+//    set_motors_drive(-12000);
+//    pros::delay(500);
+//    set_lift(127);
+//    pros::delay(400);
+//    set_lift(-127);
+//    pros::delay(400);
+//    set_lift(0);
+//    set_motors_drive(-3000);
+//    // Grabs the goal with the claw
+//    pros::delay(400);
+//    set_tilter(127);
+//    pros::delay(800);
+//    // Drives backwards
+//    set_motors_drive(12000);
+//    set_lift(127);
+//    pros::delay(400);
+//    set_lift(0);
+//    pros::delay(600);
+//    set_motors_drive(0);
+//}
 
 void win_point() {
     //std::int32_t tare_rotation(GYRO_PORT);
@@ -804,7 +811,7 @@ void win_point() {
     set_motors_drive(0);
     pros::delay(200);
     set_motors_drive(8100);
-    pros::delay(440);
+    pros::delay(450);
     set_motors_drive(0);
     pros::delay(200);
     gyro_turning(157, 161, true, false);

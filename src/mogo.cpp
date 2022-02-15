@@ -12,8 +12,8 @@ int mogo_out_timer = 0;
 bool is_up = false;
 bool is_out = false;
 
-int mogo_port = 16;
-pros::Motor mogo(mogo_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+int taketake_port = 16;
+pros::Motor taketake(taketake_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
 void set_mogo(int input) { mogo = input; }
 
@@ -147,12 +147,12 @@ void mogo_control_manual()
   if (master.get_digital(DIGITAL_L1))
   {
     ///set_mogo(127);
-    pistonClamp.set_value(true);
+    mogoClamp.set_value(true);
   }
   else if (master.get_digital(DIGITAL_L2))
   {
     ///set_mogo(-127);
-    pistonClamp.set_value(false);
+    mogoClamp.set_value(false);
   }
   else
   {

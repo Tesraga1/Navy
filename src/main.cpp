@@ -57,7 +57,7 @@ void auto_select(bool is_auton)
         case 1: // Auto 2
             pros::lcd::set_text(2, "Biggiecheese Auton");
             if (is_auton)
-                neutral_biggiecheese();// auto_3();
+                // auto_3();
             break;
         case 2: // Auto 3
             pros::lcd::set_text(2, "Skills auton");
