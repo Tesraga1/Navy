@@ -164,8 +164,8 @@
         },
         "upload_options": {
             "compress_bin": true,
-            "description": "dogo :)",
-            "remote_name": "DOGO",
+            "description": "Navy V1-3 :)",
+            "remote_name": "NAVYV1-3",
             "slot": 1
         }
     }

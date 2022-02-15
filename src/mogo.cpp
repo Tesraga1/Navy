@@ -13,9 +13,9 @@ bool is_up = false;
 bool is_out = false;
 
 int taketake_port = 16;
-pros::Motor taketake(taketake_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+pros::Motor mogo(taketake_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
-void set_mogo(int input) { mogo = input; }
+void set_mogo(bool input) { if (input == true) {mogoClamp.set_value(true);} else {mogoClamp.set_value(false);} }
 
 void zero_mogo() { mogo.tare_position(); }
 int get_mogo() { return mogo.get_position(); }

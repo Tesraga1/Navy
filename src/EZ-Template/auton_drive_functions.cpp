@@ -627,18 +627,16 @@ void line_auton() {
     set_motors_drive(4000);
     pros::delay(800);
     set_motors_drive(0);
-    set_mogo(-127);
+    set_mogo(true);
     pros::delay(1600);
-    set_mogo(0);
     set_motors_drive(-8000);
     pros::delay(600);
     set_motors_drive(0);
 }
 void skills_auton() {
     // Grabs Mobile Goal
-    set_mogo(-127);
+    set_mogo(true);
     pros::delay(700);
-    set_mogo(0);
 
     while (gyro.get_heading() < 30 /*  BIGGIE CHEESE*/ || gyro.get_heading() > 34) {
         set_motors_right(-6000);
@@ -710,7 +708,7 @@ void skills_auton() {
     set_motors_drive(6000);
     pros::delay(750);
     set_motors_drive(0);
-    set_mogo(127);
+    set_mogo(false);
     pros::delay(500);
     set_mogo(0);
     while (gyro.get_heading() < 217 || gyro.get_heading() > 223) {
@@ -823,9 +821,8 @@ void win_point() {
     set_motors_drive(7000);
     pros::delay(1200);
     set_motors_drive(0);
-    set_mogo(-127);
+    set_mogo(true);
     pros::delay(875);
-    set_mogo(0);
     set_puttputt(50);
     pros::delay(150);
     set_puttputt(0);
