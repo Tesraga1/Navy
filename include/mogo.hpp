@@ -1,7 +1,7 @@
 #pragma once
 extern bool mogo_up;
 
-void set_mogo(int input);
+void set_mogo(bool input);
 void zero_mogo();
 int get_mogo();
 int get_mogo_vel();

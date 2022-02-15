@@ -710,7 +710,6 @@ void skills_auton() {
     set_motors_drive(0);
     set_mogo(false);
     pros::delay(500);
-    set_mogo(0);
     while (gyro.get_heading() < 217 || gyro.get_heading() > 223) {
         set_motors_left(6000);
     }
