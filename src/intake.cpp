@@ -5,9 +5,9 @@
 #include "intake.h"
 #include "main.h"
 
-int taketake_port = 16;
+int biggiecheeie_port = 16;
 
-pros::Motor taketake(taketake_port, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
+pros::Motor taketake(biggiecheeie_port, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 void set_take(int input) {taketake = input;}
 
 void takeintake() {
