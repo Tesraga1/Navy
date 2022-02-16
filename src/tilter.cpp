@@ -167,17 +167,18 @@ void tilter_control()
 
 void tilter_control_manuel()
 {
-    bool tiltboy = true;
     if (master.get_digital(DIGITAL_L2))
     {
-
-        ///set_mogo(127);
-        if (tiltboy == true) {
-            tilterClamp.set_value(true);
-            tiltboy = false;
-        } else {
-            tilterClamp.set_value(false);
-            tiltboy = true;
-        }
+        ///set_tilter(127);
+        tilterClamp.set_value(true);
+    }
+    else if (master.get_digital(DIGITAL_L1))
+    {
+        ///set_tilter(-127);
+        tilterClamp.set_value(false);
+    }
+    else
+    {
+        ///set_tilter(0);
     }
 }
