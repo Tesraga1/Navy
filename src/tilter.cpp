@@ -167,12 +167,12 @@ void tilter_control()
 
 void tilter_control_manuel()
 {
-    if (master.get_digital(DIGITAL_L2))
+    if (master.get_digital(DIGITAL_UP))
     {
         ///set_tilter(127);
         tilterClamp.set_value(true);
     }
-    else if (master.get_digital(DIGITAL_L1))
+    else if (master.get_digital(DIGITAL_DOWN))
     {
         ///set_tilter(-127);
         tilterClamp.set_value(false);
