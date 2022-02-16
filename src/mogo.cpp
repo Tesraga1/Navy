@@ -144,18 +144,17 @@ void mogo_control()
 
 void mogo_control_manual()
 {
-  if (master.get_digital(DIGITAL_L1))
+    bool biteboy = true;
+  if (master.get_digital(DIGITAL_L2))
   {
+
     ///set_mogo(127);
-    mogoClamp.set_value(true);
-  }
-  else if (master.get_digital(DIGITAL_L2))
-  {
-    ///set_mogo(-127);
-    mogoClamp.set_value(false);
-  }
-  else
-  {
-    ///set_mogo(0);
+    if (biteboy == true) {
+        mogoClamp.set_value(true);
+        biteboy = false;
+    } else {
+        mogoClamp.set_value(false);
+        biteboy = true;
+    }
   }
 }
