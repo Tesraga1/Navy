@@ -800,35 +800,13 @@ void neutral_auton() {
     pros::delay(1000);
     set_motors_drive(0);
 }
-//void neutral_biggiecheese() {
-//    set_motors_drive(-12000);
-//    pros::delay(500);
-//    set_lift(127);
-//    pros::delay(400);
-//    set_lift(-127);
-//    pros::delay(400);
-//    set_lift(0);
-//    set_motors_drive(-3000);
-//    // Grabs the goal with the claw
-//    pros::delay(400);
-//    set_tilter(127);
-//    pros::delay(800);
-//    // Drives backwards
-//    set_motors_drive(12000);
-//    set_lift(127);
-//    pros::delay(400);
-//    set_lift(0);
-//    pros::delay(600);
-//    set_motors_drive(0);
-//}
 
 void win_point() {
     //std::int32_t tare_rotation(GYRO_PORT);
     //std::int32_t tare_heading(GYRO_PORT);
 
-    set_tilter(127);
+    set_tilter(true);
     pros::delay(300);
-    set_tilter(0);
     set_motors_drive(6000);
     pros::delay(310);
     set_motors_drive(0);
@@ -859,70 +837,3 @@ void win_point() {
     pros::delay(500);
     set_motors_drive(0);
 }
-
-//set_mogo(-127);
-//pros::delay(700);
-//set_mogo(0);
-//
-//while (gyro.get_heading() < 30 || gyro.get_heading() > 34) {
-//set_motors_right(-6000);
-//}
-//set_motors_drive(0);
-//pros::delay(20);
-//
-//// Turns towards the neutral mobile goal
-//set_motors_drive(0);
-//pros::delay(20);
-//set_motors_drive(-6000);
-//pros::delay(500);
-//set_motors_drive(0);
-//while (gyro.get_heading() < 93 || gyro.get_heading() > 98) {
-//set_motors_left(6000);
-//}
-//set_motors_drive(0);
-//pros::delay(20);
-//
-//// Drives forward and grabs the nutral goal
-//set_motors_drive(-8000);
-//pros::delay(1200);
-//set_motors_drive(-2000);
-//pros::delay(600);
-//set_motors_drive(0);
-//set_tilter(127);
-//pros::delay(900);
-//set_tilter(60);
-//
-//// Moves forward and lifts the mobile goal up
-//set_motors_drive(-8000);
-//pros::delay(1400);
-//set_motors_drive(0);
-//set_tilter(60);
-//pros::delay(100);
-//set_lift(127);
-//pros::delay(1600);
-//
-//// Turns left slightly to line up with the platform
-//while (gyro.get_heading() < 126 || gyro.get_heading() > 132) {
-//set_motors_left(6000);
-//}
-//set_motors_drive(0);
-//pros::delay(20);
-//
-//// Drive forward and places the mobile goal down
-//set_motors_drive(-6000);
-//pros::delay(1500);
-//set_motors_drive(0);
-//set_lift(-127);
-//pros::delay(550);
-//set_lift(0);
-//
-//// Lets the mobile goal go
-//set_tilter(-127);
-//pros::delay(500);
-//set_tilter(0);
-//set_lift(127);
-//pros::delay(750);
-//set_lift(0);
-//set_motors_drive(6000);
-//pros::delay(200);
-//set_motors_drive(0);
