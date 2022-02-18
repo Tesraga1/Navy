@@ -11,6 +11,7 @@ pros::Motor taketake(biggiecheeie_port, pros::E_MOTOR_GEARSET_18, false, pros::E
 void set_take(int input) {taketake = input;}
 
 bool takeboy = false;
+bool takeboyback = false;
 void takeintake() {
 
     if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X))
@@ -25,10 +26,14 @@ void takeintake() {
         }
     }
     if (takeboy == true) {
-        set_take(127);
+        set_take(-127);
 //
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+        set_take(127);
     } else {
         set_take(0);
 //
     }
+
+
 }
