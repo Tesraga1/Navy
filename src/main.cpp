@@ -175,7 +175,7 @@ void autonomous()
 	// reset_drive_sensor();
 	set_drive_brake(MOTOR_BRAKE_BRAKE);
 	// drive_pid.resume();
-    //pros::c::motor_set_brake_mode(mogo_port, MOTOR_BRAKE_HOLD);
+	//pros::c::motor_set_brake_mode(mogo_port, MOTOR_BRAKE_HOLD);
 	pros::c::motor_set_brake_mode(lift_port, MOTOR_BRAKE_HOLD);
 	pros::c::motor_set_brake_mode(tilter_port, MOTOR_BRAKE_HOLD);
 	auto_select(true);
@@ -201,7 +201,7 @@ void opcontrol()
 	set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
 	pros::c::motor_set_brake_mode(lift_port, MOTOR_BRAKE_HOLD);
 	pros::c::motor_set_brake_mode(tilter_port, MOTOR_BRAKE_HOLD);
-    //pros::c::motor_set_brake_mode(mogo_port, MOTOR_BRAKE_HOLD);
+	//pros::c::motor_set_brake_mode(mogo_port, MOTOR_BRAKE_HOLD);
 
 	while (true)
 	{
