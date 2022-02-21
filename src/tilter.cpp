@@ -15,7 +15,7 @@ bool is_there = false;
 int tilter_port = 17;
 pros::Motor tilter(tilter_port, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
 
-void set_tilter(bool input) { if (input == true) {tilter = true;} else {tilter = false;} }
+void set_tilter(bool input) { if (input == true) {tilterClamp.set_value(true);} else {tilterClamp.set_value(false);} }
 
 void zero_tilter() { tilter.tare_position(); }
 int get_tilter() { return tilter.get_position(); }
