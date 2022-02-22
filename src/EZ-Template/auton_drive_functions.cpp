@@ -630,7 +630,7 @@ void skills_auton() {
     // Grabs Mobile Goal
     set_mogo(true);
     set_tilter(true);
-    pros::delay(200);
+    pros::delay(400);
     set_motors_drive(6000);
     pros::delay(300);
     set_motors_drive(0);
@@ -652,7 +652,7 @@ void skills_auton() {
     set_motors_drive(-6000);
     pros::delay(500);
     set_motors_drive(0);
-    while (gyro.get_heading() < 92 || gyro.get_heading() > 97) {
+    while (gyro.get_heading() < 96 || gyro.get_heading() > 100) {
         set_motors_left(6000);
     }
     set_motors_drive(0);
@@ -684,7 +684,7 @@ void skills_auton() {
 
     // Drive forward and places the mobile goal down
     set_motors_drive(-6000);
-    pros::delay(1200);
+    pros::delay(1050);
     set_motors_drive(0);
     set_lift(-127);
     pros::delay(650);
@@ -713,42 +713,42 @@ void skills_auton() {
         set_motors_left(6000);
     }
     set_motors_drive(-6000);
-     pros::delay(400);
+     pros::delay(450);
      set_motors_drive(0);
      set_tilter(false);
      pros::delay(100);
      set_lift(127);
      pros::delay(1600);
      set_lift(0);
-     while (gyro.get_heading() < 112 || gyro.get_heading() > 120) {
+     while (gyro.get_heading() < 115 || gyro.get_heading() > 123) {
         set_motors_left(6000);
     }
      set_motors_drive(-6000);
-     pros::delay(1200);
+     pros::delay(1400);
      set_motors_drive(0);
     set_lift(-127);
-    pros::delay(650);
+    pros::delay(450);
     set_lift(0);
      set_tilter(true);
      set_lift(127);
     pros::delay(750);
     set_lift(0);
     set_motors_drive(6000);
-    pros::delay(400);
+    pros::delay(200);
     set_motors_drive(0);
-    while (gyro.get_heading() < 156 || gyro.get_heading() > 162) {
+    while (gyro.get_heading() < 158 || gyro.get_heading() > 164) {
         set_motors_left(6000);
     }
     pros::delay(20);
     set_motors_drive(6000);
-    pros::delay(950); //pros::delay(950);
+    pros::delay(1350); //pros::delay(950);
     set_motors_drive(0);
     set_mogo(false); //set_mogo(true);
     pros::delay(500);
     set_motors_drive(-6000);
-    pros::delay(1250);
+    pros::delay(900);
     set_motors_drive(0);
-    while (gyro.get_heading() < 217 || gyro.get_heading() > 223) {
+    while (gyro.get_heading() < 205 || gyro.get_heading() > 211) {
         set_motors_left(6000);
     }
     pros::delay(30);
@@ -759,10 +759,12 @@ void skills_auton() {
     set_motors_drive(12000);
     pros::delay(100);
     set_motors_drive(0);
-    while (gyro.get_heading() < 123 || gyro.get_heading() > 126) {
+    pros::delay(500);
+    while (gyro.get_heading() < 170 || gyro.get_heading() > 175) {
         set_motors_right(6000);
     }
-    pros::delay(30);
+    set_mogo(true);
+    pros::delay(130);
     set_motors_drive(-12000);
     pros::delay(1500);
     set_motors_drive(0);

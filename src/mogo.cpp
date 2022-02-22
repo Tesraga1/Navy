@@ -141,21 +141,23 @@ void mogo_control()
   else if (!mogo_up)
     mogo_out();
 }
-
+bool mogoboy = false;
 void mogo_control_manual()
 {
-    if (master.get_digital(DIGITAL_L2))
+    if (master.get_digital(DIGITAL_L1))
     {
         ///set_mogo(127);
-        mogoClamp.set_value(true);
+        if (mogoboy == true) {
+            mogoboy = false;
+            pros::delay(100);
+        } else {
+            mogoboy = true;
+            pros::delay(100);
+        }
     }
-    else if (master.get_digital(DIGITAL_L1))
-    {
-        ///set_mogo(-127);
-        mogoClamp.set_value(false);
-    }
-    else
-    {
-        ///set_mogo(0);
+    if (mogoboy == true) {
+        set_mogo(true);
+    } else {
+        set_mogo(false);
     }
 }

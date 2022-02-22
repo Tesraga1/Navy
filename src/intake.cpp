@@ -13,7 +13,7 @@ void set_take(int input) {taketake = input;}
 bool takeboy = false;
 void takeintake() {
 
-    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_X))
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
     {
         ///set_mogo(127);
         if (takeboy == true) {
