@@ -11,7 +11,7 @@ int down_lock = 0;
 int lift_state = 0;
 int lift_port = 11;
 
-pros::Motor lift(lift_port, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+pros::Motor lift(lift_port, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
 
 
 void set_lift(int input) { lift = input; }
@@ -35,7 +35,7 @@ set_lift_position(int target, int speed) {
 void
 lift_control() {
     // Lift Up
-    if (master.get_digital(DIGITAL_R1) && up_lock == 0) {
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1) && up_lock == 0) {
         // If lift is at max height, bring it down to 0
         if (lift_state == num_of_pos - 1)
             lift_state = 0;
@@ -44,12 +44,12 @@ lift_control() {
             lift_state++;
 
         up_lock = 1;
-    } else if (!master.get_digital(DIGITAL_R1)) {
+    } else if (!master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
         up_lock = 0;
     }
 
     // Lift Down
-    if (master.get_digital(DIGITAL_R2) && down_lock == 0) {
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2) && down_lock == 0) {
         // If the lift is down, bring the lift to max height
         if (lift_state == 0)
             lift_state = num_of_pos - 1;
@@ -58,20 +58,38 @@ lift_control() {
             lift_state--;
 
         down_lock = 1;
-    } else if (!master.get_digital(DIGITAL_R2)) {
+    } else if (!master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
         down_lock = 0;
     }
 
     // Set the lift to the current position in the array
     set_lift_position(lift_heights[lift_state], 127);
 }
-
+float prime;
+bool primeboy = false;
 void lift_control_manuel() {
-    if (master.get_digital(DIGITAL_R1)) {
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
         set_lift(127);
-    } else if (master.get_digital(DIGITAL_R2)) {
+    } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
         set_lift(-127);
     } else {
         set_lift(0);
+    }
+
+    if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2))
+    {
+        if (!primeboy) {
+            prime = lift.get_position();
+            primeboy = true;
+            pros::delay(150);
+        } else {
+            primeboy = false;
+            pros::delay(150);
+        }
+    }
+    if (lift.get_position() > prime + 10 && primeboy) {
+        set_take(-110);
+    } else {
+        set_take(0);
     }
 }

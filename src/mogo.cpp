@@ -149,10 +149,10 @@ void mogo_control_manual()
         ///set_mogo(127);
         if (mogoboy == true) {
             mogoboy = false;
-            pros::delay(100);
+            pros::delay(200);
         } else {
             mogoboy = true;
-            pros::delay(100);
+            pros::delay(200);
         }
     }
     if (mogoboy == true) {
