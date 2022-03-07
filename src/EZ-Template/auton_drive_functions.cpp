@@ -598,7 +598,7 @@ void gyro_turning(float left_range, float right_range, bool negative, bool direc
 
 
 /* To Do:
- * Auton 1: Win point
+ * Auton 1: Win point (Probably not)
  * Auton 2: 1 Yellow (Done)
  * Auton 3: Platform Intake (Up and down) (Done)
  * Auton 4: Line Intake (Done)
@@ -654,7 +654,7 @@ void skills_auton() {
     pros::delay(500);
     set_motors_drive(0);
     pros::delay(400);
-    while (gyro.get_heading() < 83 || gyro.get_heading() > 93) {
+    while (gyro.get_heading() < 85 || gyro.get_heading() > 87) {
         set_motors_left(6000);
     }
     set_motors_drive(0);
@@ -662,9 +662,9 @@ void skills_auton() {
 
     // Drives forward and grabs the nutral goal
     set_motors_drive(-8000);
-    pros::delay(1200);
+    pros::delay(1100);
     set_motors_drive(-2000);
-    pros::delay(600);
+    pros::delay(800);
     set_motors_drive(0);
     set_tilter(false);
     pros::delay(900);
@@ -673,12 +673,12 @@ void skills_auton() {
     set_lift(127);
     pros::delay(1600);
     set_motors_drive(-8000);
-    pros::delay(950);
+    pros::delay(1000);
     set_motors_drive(0);
     pros::delay(100);
 
     // Turns left slightly to line up with the platform
-    while (gyro.get_heading() < 130 || gyro.get_heading() > 135) {
+    while (gyro.get_heading() < 135 || gyro.get_heading() > 137) {
         set_motors_left(6000);
     }
     set_motors_drive(0);
@@ -686,7 +686,7 @@ void skills_auton() {
 
     // Drive forward and places the mobile goal down
     set_motors_drive(-6000);
-    pros::delay(750);
+    pros::delay(900);
     set_motors_drive(0);
     set_lift(-127);
     pros::delay(650);
@@ -694,7 +694,7 @@ void skills_auton() {
 
     // Lets the mobile goal go
     set_tilter(true);
-    pros::delay(500);
+    pros::delay(1000);
     set_lift(127);
     pros::delay(750);
     set_lift(0);
@@ -711,7 +711,7 @@ void skills_auton() {
     pros::delay(400);
     set_motors_drive(0);
     pros::delay(300);
-    while (gyro.get_heading() < 298 || gyro.get_heading() > 304) {
+    while (gyro.get_heading() < 299 || gyro.get_heading() > 305) {
         set_motors_left(6000);
     }
     set_motors_drive(-6000);
@@ -724,65 +724,75 @@ void skills_auton() {
      set_lift(127);
      pros::delay(1600);
      set_lift(0);
-     while (gyro.get_heading() < 105 || gyro.get_heading() > 113) {
+     while (gyro.get_heading() < 111 || gyro.get_heading() > 118) {
         set_motors_left(6000);
     }
      set_motors_drive(-6000);
      pros::delay(1150);
      set_motors_drive(0);
     set_lift(-127);
-    pros::delay(550);
+    pros::delay(650);
     set_lift(0);
-    pros::delay(300);
+    pros::delay(400);
      set_tilter(true);
+     pros::delay(100);
+    set_motors_drive(6000);
+     pros::delay(100);
+    set_motors_drive(0);
      set_lift(127);
     pros::delay(750);
     set_lift(0);
     set_motors_drive(6000);
-    pros::delay(200);
+    pros::delay(100);
     set_motors_drive(0);
 
     //Turns and grabs line mobile goal
-    while (gyro.get_heading() < 162 || gyro.get_heading() > 168) {
+    while (gyro.get_heading() < 163 || gyro.get_heading() > 169) {
         set_motors_left(6000);
     }
     set_motors_drive(0);
-    pros::delay(5000);
+    pros::delay(500);
     set_motors_drive(6000);
-    pros::delay(1250); //pros::delay(950);
+    pros::delay(1150); //pros::delay(950);
     set_motors_drive(0);
     set_mogo(false); //set_mogo(true);
     pros::delay(500);
     set_motors_drive(-6000);
-    pros::delay(900);
+    pros::delay(700);
     set_motors_drive(0);
 
     //Turns to central goal and drive forward
-    while (gyro.get_heading() < 190 || gyro.get_heading() > 196) {
+    while (gyro.get_heading() < 215 || gyro.get_heading() > 219) {
         set_motors_left(6000);
     }
     set_motors_drive(0);
     pros::delay(30);
 
     set_lift(-127);
-    pros::delay(600);
+    pros::delay(1400);
 
     set_motors_drive(-6000); //-6000
-    pros::delay(1600);
+    pros::delay(1100);
+    set_motors_drive(-3000);
+    pros::delay(700);
     set_motors_drive(0);
-    pros::delay(100);
+    pros::delay(300);
 
     //Grabs Middle goal and places it ontop of the platform
     set_tilter(false);
+    pros::delay(200);
     set_motors_drive(6000);
-    pros::delay(1000);
+    pros::delay(2800);
     set_motors_drive(0);
     pros::delay(300);
-    while (gyro.get_heading() < 120 || gyro.get_heading() > 125) {
+    while (gyro.get_heading() < 184 || gyro.get_heading() > 189) {
         set_motors_right(6000);
     }
+    set_motors_drive(0);
+    pros::delay(20);
     set_lift(127);
-    pros::delay(1600);
+    pros::delay(800);
+    set_lift(0);
     set_motors_drive(-6000);
     pros::delay(1000);
     set_lift(-127);
